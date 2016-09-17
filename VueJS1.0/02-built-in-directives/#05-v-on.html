@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : v-on</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue.js 1.0: v-on</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="app">
+            <div id="vue-instance">
+                Enter your name: <input type="text" v-model="name">
+                <button v-on:click="sayHello">Hey there!</button>
+
+            </div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#vue-instance',
+        data: {
+            name: ''
+        },
+        methods: {
+            sayHello: function(){
+                alert('Hey there, ' + this.name);
+            }
+        }
+    })
+</script>
+</body>
+</html>

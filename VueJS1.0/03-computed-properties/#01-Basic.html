@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : Computed Properties - Basic </title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue.js 1.0: Computed Properties - Basic </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="app">
+			<label for="">Data 1</label><br/>
+			<input type="text" v-model="x"><br/><br/>
+
+			<label for="">Data 2</label><br/>
+			<input type="text" v-model="y"><br/><br/>
+			Result: {{ basic }}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    var data = {
+        x: 0,
+        y: 0
+    };
+	new Vue({
+		el: '#app',
+		data: data,
+		computed: {
+			basic: function(){
+				return this.x * this.y		
+			}
+		}
+	}) //end Vue
+</script>
+</body>
+</html>

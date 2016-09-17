@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : # - Components 101 #1</title>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script>
+
+	<style>
+	</style>
+</head>
+
+<body>
+<h1>Components</h1>
+
+
+
+<div id="app">
+	<counter subject='Likes'></counter>
+	<counter subject='Dislikes'></counter>
+	
+</div>
+			
+
+<template id='counter-template'>
+	<h1>Heading</h1>
+	<button @click="count += 1">{{ count }}</button>
+
+</template>
+
+
+
+<script type="text/javascript">
+
+	//Register a component
+	Vue.component('counter',{
+		template: '#counter-template',
+		props: ['subject'],
+		data: function(){
+			return { count: 0 }
+		}
+	});
+	
+	new Vue({
+		el: '#app'
+	}) //end Vue
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS 1.0: #2-Two Way Binding</title>
+
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>VueJS 1.0: Two Way Binding</h1>
+		</div>
+	</div>
+
+	<!--code here-->
+	<div class="row">
+		<div id="app">
+
+			<!--
+            V-model -> can push data to json element, that will act as Data Binding
+
+            Expects: varies based on input type
+
+            Limited to:
+                <input>
+                <select>
+                <textarea>
+
+            Param Attributes:
+                lazy		-By default, v-model syncs the input with the data after each input event. Need to use enter key.
+                number		-Persisted as numbers, you can add a number attribute to your v-model managed inputs:
+                debounce	-The debounce param allows you to set a minimum delay after each keystroke before the input’s value is synced 			   to the model.
+
+            -->
+
+			<div>Default</div>
+			<input type="text" v-model="default" style="width: 50%"><br>
+			<code>syncs the input with the data after each</code>
+			<br><br>
+
+
+			<div>Lazy</div>
+			<input type="text" v-model="lazy" style="width: 50%" lazy><br>
+			<code>synced after "change"</code>
+			<br><br>
+
+
+
+			<div>Number</div>
+			<input v-model="number" style="width: 50%" number><br>
+			<code>automatically persisted as numbers</code>
+			<br><br>
+
+
+			<div>Debounce</div>
+			<input type="text" v-model="debounce" style="width: 50%" debounce="500"><br>
+			<code> allows you to set a minimum delay after each keystroke</code>
+			<br><br>
+
+
+			<pre>
+				{{ $data | json }}
+			</pre>
+
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	var data= {
+		default: "default",
+		lazy: "lazy",
+		number: "",
+		debounce: "debounce"
+	};
+
+	new Vue({
+		el: '#app',
+		data: data
+
+	})
+</script>
+</body>
+</html>

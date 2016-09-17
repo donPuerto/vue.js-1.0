@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : #6- v-if</title>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script>
+
+	<style>
+		
+	</style>
+</head>
+
+<body>
+
+	<div id="app">
+		<input type="text" v-model = "msg" lazy> <button v-on:click="btnPressMe">Press me...</button>
+	
+		
+	</div>
+
+<script type="text/javascript">
+	
+	new Vue({
+		el: "#app",
+		data: {msg: ""},
+		methods: {
+			btnPressMe: function (){
+				alert(this.msg)
+			}
+		}
+	
+
+
+	}) //end Vue
+</script>
+</body>
+</html>

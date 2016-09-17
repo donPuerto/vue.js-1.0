@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : Computed Properties </title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue.js 1.0: Computed Properties - Computer Setter </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="app">
+			First Name: <input type="text" v-model="fname"> <br><br>
+			Last Name: <input type="text" v-model="lname"><br><br>
+			{{ fullName }}
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var data = {
+		fname: "",
+		lname: ""
+	};
+	var vm = new Vue({
+		el: '#app',
+		data: data,
+		computed: {
+			fullName: {
+				get: function () {
+
+
+					return this.fname + ' ' + this.lname
+
+				},
+				set: function (name) {
+					this.fname = name.split(' ');
+				}
+			}
+		}
+	}) //end Vue
+	vm.fullName = "John Doe";
+
+</script>
+</body>
+</html>

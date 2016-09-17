@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0:  #3- Render a List</title>
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!-- 
+	v-for
+	
+	Expects: Array | Object | Number | String
+
+	Param Attributes:
+	track-by
+	stagger
+	enter-stagger
+	leave-stagger
+
+-->
+
+
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>VueJS: Render a List</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div id="app">
+			<ul>
+				<li v-for="item in items">
+					{{ parentMessage }} - {{$index}} - {{ item.text}}
+
+				</li>
+			</ul>
+
+			<pre>
+		{{ $data | json }}
+	</pre>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var data =
+	{
+		parentMessage: 'Parent Message',
+		items: [
+			{text: 'Learn JavaScript'},
+			{text: 'Learn Vue.js'},
+			{text: 'Build something awesome'}
+		]
+	};
+	new Vue({
+		el: '#app',
+		data: data
+
+	})
+</script>
+</body>
+</html> 

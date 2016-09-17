@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : v-show</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+
+	<style>
+		.error{
+			color: red;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue.js 1.0 : v-show</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div id="app">
+
+			<!-- !message = if message is empty show if not hide -->
+			<!--Show: true-->
+			<span class="error" v-show="!message">You must enter a message</span><br>
+
+			<form action="">
+				<textarea cols="30" rows="4" v-model="message"></textarea> <br/>
+				<!--Show: false-->
+				<button v-show="message" v-on:click="buttonClick">Update</button>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			message: ""
+		},
+		methods:{
+			buttonClick: function(){
+				alert("thanks for updating the textarea")
+			}
+		}
+	}) //end Vue
+</script>
+</body>
+</html>

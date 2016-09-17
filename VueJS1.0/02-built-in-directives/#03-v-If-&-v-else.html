@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : v-if & v-else</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue JS: Built in directives v-if and v-else</h1>
+		</div>
+	</div>
+
+	<div class="row" id="app">
+		<input type="checkbox" v-model="bool"><br>
+		<div v-if="bool">
+			<h1>v-if</h1>
+			<code>true</code>
+		</div>
+		<div v-else="bool">
+			<h1>v-else</h1>
+			<code>false</code>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	
+	new Vue({
+		el: '#app',
+		data: {
+			bool: true
+		}
+
+
+	}) //end Vue
+
+
+</script>
+</body>
+</html>

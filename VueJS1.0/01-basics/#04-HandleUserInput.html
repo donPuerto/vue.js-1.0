@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : #4- Handle User Input</title>
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+<!-- 
+	v-on
+	Shorthand: @
+
+	Expects: Function | Inline Statement
+	Argument: event (required)
+
+	Modifiers:
+
+	.stop - call event.stopPropagation().
+	.prevent - call event.preventDefault().
+	.{keyCode | keyAlias} - only trigger handler on certain keys.
+
+
+	Usage:
+
+	Attaches an event listener to the element. The event type is denoted by the argument. The expression can either be a method name or an inline statement, or simply omitted when there are modifiers present.
+	When used on a normal element, it listens to native DOM events only. When used on a custom element component, it also listens to custom events emitted on that child component.
+
+	Example:
+	method handler
+	<button v-on:click="doThis"></button>
+
+	inline statement
+	<button v-on:click="doThat('hello')"></button>
+
+	shorthand
+	<button @click="doThis"></button>
+
+	stop propagation
+	<button @click.stop="doThis"></button>
+
+	prevent default
+	<button @click.prevent="doThis"></button>
+
+	prevent default without expression
+	<form @submit.prevent></form>
+
+	chain modifiers
+	<button @click.stop.prevent="doThis"></button>
+
+	key modifier using keyAlias
+	<input @keyup.enter="onEnter">
+
+	key modifier using keyCode
+	<input @keyup.13="onEnter">
+ -->
+
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue 1.0: Method using v-on</h1>
+		</div>
+	</div>
+	<div class="row" id="app">
+
+		<input type="text" v-model="message">
+		<button v-on:click="reverse_msg">Reverse Message</button>
+		<br>
+		<strong> {{ reverseMessage }} </strong>
+		<br><br>
+		<pre>
+			{{ $data | json }}
+		</pre>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el: '#app',
+
+		data:{
+			message: "Hello World",
+			reverseMessage: ""
+
+		},
+
+		methods: {
+			/*
+				note: 
+				this => this keyword used to refer message from data	
+			*/
+			reverse_msg: function(){
+				this.reverseMessage = this.message.split('').reverse().join('');
+
+
+			}
+		} 
+	})
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : #7 - Methods and Event Handler</title>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script>
+
+	<style>
+	</style>
+</head>
+<body>
+<h1>Methods and Event Handling</h1>
+
+
+<div id="app">
+	
+	<button v-on:click="BtnClicked">Basic Method Handler</button>
+	<button v-on:click="Say('This is inline method handler...',$e)">Inline Method Handler</button>
+</div>
+
+
+<script type="text/javascript">
+	
+	new Vue({
+		el: '#app',
+		methods: {
+			BtnClicked: function(){
+
+				alert("Hello Vue.js")
+			},
+			Say: function(msg,e){
+				alert(msg)
+				e.preventDefault()
+			}
+		
+		}
+		
+
+	}) //end Vue
+
+
+
+</script>
+</body>
+</html>

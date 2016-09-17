@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJS 1.0: Hello World</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron">
+				<h1>VueJS Interpolation</h1>
+			</div>
+		</div>
+
+		<div class="row" id="app">
+
+			<h1>{{ message }}</h1>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var data = {
+			message: "Hello World"
+		};
+
+		new Vue({
+			el: '#app',
+			data: data
+		})
+	</script>
+</body>
+</html>

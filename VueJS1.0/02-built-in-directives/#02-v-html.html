@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : Built in directives v-html</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/vue/dist/vue.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Vue JS 1.0: v-html</h1>
+        </div>
+
+    </div>
+    <div class="row" id="app">
+        <code>using v-html</code>
+        <div v-on:mouseover="mouseOver" v-html="img" > </div>
+        <hr>
+        <div @mouseleave="mouseLeave">{{{ img}}}</div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: "#app",
+            data: {
+                img: "<img src='img/logo.png' alt='Vue JS logo' style='width:400px;height:300px;'>"
+            },
+            methods: {
+                mouseOver: function (){
+                    this.img = "<img src='img/logo-awesome.png' alt='Vue JS logo' style='width:400px;height:300px;'>"
+                },
+                mouseLeave: function () {
+                    this.img = "<img src='img/logo.png' alt='Vue JS logo' style='width:400px;height:300px;'>"
+                }
+            }
+
+
+        }) //end Vue
+    </script>
+</body>
+</html>

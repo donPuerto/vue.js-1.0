@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : #5- All Together Now</title>
+	<script src="../bower_components/vue/dist/vue.min.js"></script>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<h1>Vue 1.0: All Together Now</h1>
+		</div>
+	</div>
+
+	<div class="row" id="app">
+		<!--v-on:keyup.enter="PushInput"-->
+		<input v-model="dataInput" @keyup.enter="PushInput">
+		<ul>
+			<li v-for="list in lists">
+				{{ list.text }}
+				<button @click="removeList($index)">X</button>
+			</li>
+		</ul>
+
+		<pre>
+			{{ $data | json }}
+
+		</pre>
+
+
+	</div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el: '#app',
+
+		data:{
+
+			dataInput: '',
+			lists: []
+		},
+
+		methods: {
+			PushInput: function(){
+				//object push to array
+				this.lists.push({text: this.dataInput.trim()});
+				//clearing input
+				this.dataInput = "";
+	
+			}, // end PushInput
+
+			removeList: function (index){
+				this.lists.splice(index, 1);
+			}
+
+			
+		} // end Method 
+	})
+
+
+
+</script>
+</body>
+</html>

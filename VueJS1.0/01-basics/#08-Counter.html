@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js 1.0 : #8 - Counter</title>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script>
+
+	<style>
+	</style>
+</head>
+<body>
+<h1>Button Counter</h1>
+
+
+<div id="app">
+	
+	<button type="submit" v-on:click.stop.prevent="CountUp">Count Up {{ latestCount }}</button>
+	<button type="submit" v-on:click.stop.prevent="CountDown">Count Down {{ latestCount }}</button>
+</div>
+
+
+<script type="text/javascript">
+	
+	new Vue({
+		el: '#app',
+		data: {
+			latestCount: 0
+		},
+		methods: {
+			CountUp: function(){
+				this.latestCount += 1
+				
+			},
+			CountDown: function(){	
+				this.latestCount -= 1
+			}
+		
+		}
+		
+
+	}) //end Vue
+
+
+
+</script>
+</body>
+</html>
